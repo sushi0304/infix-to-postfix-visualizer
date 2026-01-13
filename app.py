@@ -45,7 +45,7 @@ def index():
     steps = []
 
     if request.method == "POST":
-        infix = request.form["infix"]
+        infix = request.form.get("infix", "")
         postfix, steps = infix_to_postfix_steps(infix)
 
     return render_template("index.html", postfix=postfix, steps=steps)
