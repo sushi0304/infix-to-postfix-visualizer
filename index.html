@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Infix to Postfix Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
+</head>
+<body>
+
+<h1 class="title">INFIX → POSTFIX VISUALIZER</h1>
+
+<div class="dashboard">
+
+    <!-- LEFT PANEL -->
+    <div class="panel left">
+        <div class="card">
+            <h3>Algorithm</h3>
+            <p>Uses stack-based conversion.</p>
+            <p>Operands → Output</p>
+            <p>Operators → Stack</p>
+        </div>
+
+        <div class="card">
+            <h3>Precedence</h3>
+            <p>^ &gt; * / &gt; + -</p>
+        </div>
+
+        <div class="card">
+            <h3>Principle</h3>
+            <p>LIFO (Last In First Out)</p>
+        </div>
+    </div>
+
+    <!-- CENTER PANEL -->
+    <div class="panel center">
+        {% if postfix %}
+        <div class="result animate">
+            Postfix Expression<br>
+            <span>{{ postfix }}</span>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="panel right">
+        <form method="POST">
+            <input type="text" name="infix" placeholder="Enter infix expression" required>
+            <button type="submit">CONVERT</button>
+        </form>
+
+        <div class="status">
+            Status: Ready
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
